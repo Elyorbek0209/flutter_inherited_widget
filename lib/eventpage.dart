@@ -1,49 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inherited_widget/statecontainer.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-// import 'addevent.dart';
+import 'addevent.dart';
 
-// import 'event.dart';
-
-
+import 'event.dart';
 
 
-class HomePage extends StatefulWidget {
+
+
+class EventPage extends StatefulWidget {
 
   final Widget child;
 
 
-  HomePage({Key key, this.child}) : super(key : key);
+  EventPage({Key key, this.child}) : super(key : key);
 
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _EventPageState createState() => _EventPageState();
 
 }
 
 
 
 
+class _EventPageState extends State<EventPage> {
 
-class _HomePageState extends State<HomePage> {
 
-
- // Event event;
-
+  Event event;
 
 
   _addEventDetails(BuildContext context){
 
-    Navigator.push(
-      
-      context, MaterialPageRoute(
+    Navigator.push(context, MaterialPageRoute(
 
         fullscreenDialog: true,
 
         builder: (context){
 
-         // return AddEvent();
+         return AddEvent();
 
         }
 
@@ -60,25 +57,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
+    final myInheritedWidget = StateContainer.of(context);
+
+    final event = myInheritedWidget.event;
+
+
     return Scaffold(
       
+
       appBar: AppBar(
-
-        leading: IconButton(
-
-          icon: Icon(
-            
-            FontAwesomeIcons.bars
-
-          ),
-
-          onPressed: (){
-
-            //
-
-          },
-
-        ),
 
 
         title: Container(
@@ -89,7 +76,7 @@ class _HomePageState extends State<HomePage> {
           
           child: Text(
             
-            'Home Page',
+            'Event Page',
 
             style: TextStyle(
 
@@ -101,31 +88,6 @@ class _HomePageState extends State<HomePage> {
 
         ),
 
-
-
-        actions: <Widget>[
-
-          IconButton(
-
-            icon: Icon(
-
-              FontAwesomeIcons.tasks,
-
-              size: 20.0,
-
-              color: Colors.white,
-
-            ),
-
-            onPressed: (){
-
-              //
-
-            },
-
-          )
-
-        ],
 
       ),
 
@@ -171,11 +133,15 @@ class _HomePageState extends State<HomePage> {
 
 
                         children: <Widget>[
+                          
+
+                          //---if 'event' NOT EQAUL TO NULL 
+                          event != null?
 
 
                           Text(
                             
-                            'EventName',
+                            '${event.eventName}',
                             
                             style: TextStyle(
 
@@ -185,15 +151,20 @@ class _HomePageState extends State<HomePage> {
 
                             ),
                           
-                          ),
+                          )
+                          
+                          : Text('No Event Name'),
 
 
                           SizedBox(height: 10.0),
 
 
+                          event != null?
+
+
                           Text(
                             
-                            'EventDetail',
+                            '${event.eventDetails}',
                             
                             style: TextStyle(
 
@@ -203,7 +174,11 @@ class _HomePageState extends State<HomePage> {
 
                             ),
                           
-                          ),
+                          )
+
+                          : Text('No Event Details'),
+
+
 
 
                           SizedBox(height: 10.0),
@@ -232,9 +207,12 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(height: 10.0),
 
 
+                                event != null?
+
+
                                 Text(
                                   
-                                  'EventDate',
+                                  '${event.eventDate}',
 
                                   style: TextStyle(
 
@@ -244,7 +222,9 @@ class _HomePageState extends State<HomePage> {
 
                                   ),
 
-                                ),
+                                )
+
+                                : Text('No Event Date'),
 
 
                               ],
@@ -278,23 +258,27 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(height: 10.0),
 
 
+                                event != null?
+
+
                                 Text(
                                   
-                                  'EventLocation',
+                                  '${event.eventLocation}',
 
                                   style: TextStyle(
 
-                                    fontSize: 30.0,
+                                    fontSize: 18.0,
 
                                     color: Color(0xffe81035),
 
                                   ),
 
-                                ),
+                                )
+
+                                : Text('No Location'),
 
 
                               ],
-
                             ),
 
                           ),
@@ -320,31 +304,6 @@ class _HomePageState extends State<HomePage> {
         ),
 
       ),
-
-
-
-      floatingActionButton: FloatingActionButton(
-
-        backgroundColor: Color(0xffe81035),
-
-        child: Icon(
-          
-          FontAwesomeIcons.plus,
-
-          size: 25.0,
-
-          color: Colors.white,
-
-        ),
-
-        onPressed: (){
-
-          _addEventDetails(context);
-
-        },
-
-      ),
-
 
     );
     

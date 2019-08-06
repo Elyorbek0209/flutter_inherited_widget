@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inherited_widget/statecontainer.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-// import 'addevent.dart';
+import 'addevent.dart';
 
-// import 'event.dart';
+import 'event.dart';
 
 
 
@@ -29,7 +30,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
 
- // Event event;
+ Event event;
 
 
 
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
 
         builder: (context){
 
-         // return AddEvent();
+         return AddEvent();
 
         }
 
@@ -60,8 +61,18 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
+
+    final myInheritedWidget = StateContainer.of(context);
+
+    //Here 'even' value declared to use below for dynamic
+    event = myInheritedWidget.event;
+
+
+
     return Scaffold(
       
+      //---------APP BAR BEGINS-----------
+
       appBar: AppBar(
 
         leading: IconButton(
@@ -129,7 +140,12 @@ class _HomePageState extends State<HomePage> {
 
       ),
 
+      
+      //---------END OF THE APP BAR -----------
 
+
+
+      //---------BODY PART BEGINS-----------
 
       body: Container(
 
@@ -147,11 +163,13 @@ class _HomePageState extends State<HomePage> {
 
                 height: 300.0,
 
+
                 child: Material(
+
 
                   color: Colors.white,
 
-                  elevation: 4.0,
+                  elevation: 14.0,
 
                   borderRadius: BorderRadius.circular(24.0),
 
@@ -162,7 +180,9 @@ class _HomePageState extends State<HomePage> {
 
                     child: Padding(
 
+
                       padding: EdgeInsets.all(8.0),
+
 
                       child: Column(
 
@@ -173,9 +193,13 @@ class _HomePageState extends State<HomePage> {
                         children: <Widget>[
 
 
+                          //1st---if 'event' NOT EQAUL TO NULL 
+                          event != null ?
+
+
                           Text(
                             
-                            'EventName',
+                            '${event.eventName}',
                             
                             style: TextStyle(
 
@@ -185,15 +209,22 @@ class _HomePageState extends State<HomePage> {
 
                             ),
                           
-                          ),
+                          )
+                          
+                          : Text('No Task Name'),
+
 
 
                           SizedBox(height: 10.0),
 
 
+                          //2nd---if 'event' NOT EQAUL TO NULL 
+                          event != null?
+
+
                           Text(
                             
-                            'EventDetail',
+                            '${event.eventDetails}',
                             
                             style: TextStyle(
 
@@ -203,10 +234,14 @@ class _HomePageState extends State<HomePage> {
 
                             ),
                           
-                          ),
+                          )
+
+                          : Text('No Event Details'),
+
 
 
                           SizedBox(height: 10.0),
+
 
 
                           Container(
@@ -232,9 +267,14 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(height: 10.0),
 
 
+                                //3rd---if 'event' NOT EQAUL TO NULL 
+
+                                event != null?
+
+
                                 Text(
                                   
-                                  'EventDate',
+                                  '${event.eventDate}',
 
                                   style: TextStyle(
 
@@ -244,7 +284,9 @@ class _HomePageState extends State<HomePage> {
 
                                   ),
 
-                                ),
+                                )
+
+                                : Text('No Event Date'),
 
 
                               ],
@@ -278,19 +320,25 @@ class _HomePageState extends State<HomePage> {
                                 SizedBox(height: 10.0),
 
 
+                                //4th---if 'event' NOT EQAUL TO NULL 
+                                event != null?
+
+
                                 Text(
                                   
-                                  'EventLocation',
+                                  '${event.eventLocation}',
 
                                   style: TextStyle(
 
-                                    fontSize: 30.0,
+                                    fontSize: 18.0,
 
                                     color: Color(0xffe81035),
 
                                   ),
 
-                                ),
+                                )
+
+                                : Text('No Event Location'),
 
 
                               ],
@@ -331,7 +379,7 @@ class _HomePageState extends State<HomePage> {
           
           FontAwesomeIcons.plus,
 
-          size: 25.0,
+          size: 30.0,
 
           color: Colors.white,
 
