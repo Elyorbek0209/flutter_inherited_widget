@@ -57,13 +57,17 @@ class _EventPageState extends State<EventPage> {
   @override
   Widget build(BuildContext context) {
 
+
     final myInheritedWidget = StateContainer.of(context);
+
 
     final event = myInheritedWidget.event;
 
 
+
     return Scaffold(
       
+      //-------APP BAR BEGINS -------
 
       appBar: AppBar(
 
@@ -91,13 +95,19 @@ class _EventPageState extends State<EventPage> {
 
       ),
 
+      //-------END OF THE APP BAR -------
 
+
+
+      //-------BODY PART BEGINS -------
 
       body: Container(
 
         child: Column(
 
+
           mainAxisAlignment: MainAxisAlignment.center,
+
 
           children: <Widget>[
 
@@ -105,15 +115,19 @@ class _EventPageState extends State<EventPage> {
 
               child: Container(
 
+
                 width: 300.0,
 
                 height: 300.0,
 
+
                 child: Material(
+
 
                   color: Colors.white,
 
                   elevation: 4.0,
+
 
                   borderRadius: BorderRadius.circular(24.0),
 
@@ -135,7 +149,7 @@ class _EventPageState extends State<EventPage> {
                         children: <Widget>[
                           
 
-                          //---if 'event' NOT EQAUL TO NULL 
+                          //1st ELEMENT---if 'event' NOT EQAUL TO NULL 
                           event != null?
 
 
@@ -152,13 +166,16 @@ class _EventPageState extends State<EventPage> {
                             ),
                           
                           )
-                          
+
                           : Text('No Event Name'),
+
 
 
                           SizedBox(height: 10.0),
 
 
+
+                          //2nd ELEMENT---if 'event' NOT EQAUL TO NULL 
                           event != null?
 
 
@@ -180,8 +197,8 @@ class _EventPageState extends State<EventPage> {
 
 
 
-
                           SizedBox(height: 10.0),
+
 
 
                           Container(
@@ -207,6 +224,7 @@ class _EventPageState extends State<EventPage> {
                                 SizedBox(height: 10.0),
 
 
+                                //3rd ELEMENT---if 'event' NOT EQAUL TO NULL 
                                 event != null?
 
 
@@ -235,6 +253,7 @@ class _EventPageState extends State<EventPage> {
 
 
 
+
                           Container(
 
                             child: Row(
@@ -258,6 +277,7 @@ class _EventPageState extends State<EventPage> {
                                 SizedBox(height: 10.0),
 
 
+                                //4th ELEMENT---if 'event' NOT EQAUL TO NULL 
                                 event != null?
 
 
@@ -279,6 +299,7 @@ class _EventPageState extends State<EventPage> {
 
 
                               ],
+
                             ),
 
                           ),
@@ -304,6 +325,10 @@ class _EventPageState extends State<EventPage> {
         ),
 
       ),
+
+
+      //-------END OF THE BODY PART -------
+
 
     );
     

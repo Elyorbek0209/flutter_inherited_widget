@@ -4,9 +4,6 @@ import 'package:flutter_inherited_widget/homepage.dart';
 import 'package:flutter_inherited_widget/eventpage.dart';
 import 'package:flutter_inherited_widget/statecontainer.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-
 
 
 
@@ -230,7 +227,7 @@ class _AddEventState extends State<AddEvent> {
 
 
 
-                //3rd 'Event name'
+                //4th 'Event name'
                 Padding(
 
                   padding: EdgeInsets.only(left: 8.0, right: 8.0),
