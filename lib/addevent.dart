@@ -26,12 +26,16 @@ class AddEvent extends StatefulWidget {
 
 class _AddEventState extends State<AddEvent> {
 
+  //---HERE Decleared  Variable and  global Key---
 
   String forEventVal, forDetailVal, forDateVal, forLocationVal;
+
 
   final editKey = new GlobalKey<FormState>();
 
 
+
+  //------'submitEventDetails' Function Begins-----
 
   submitEventDetails(){
 
@@ -69,8 +73,10 @@ class _AddEventState extends State<AddEvent> {
 
     }
 
-
   }
+
+  //------END OF THE 'submitEventDetails' Function-----
+
 
 
 
@@ -150,7 +156,13 @@ class _AddEventState extends State<AddEvent> {
 
                       keyboardType: TextInputType.text,
 
-                      decoration: InputDecoration(labelText: "Event Name"),
+
+                      decoration: InputDecoration(
+                        
+                        labelText: "Event Name",
+                        
+                      ),
+
 
                       validator: (value) =>
                       
@@ -178,9 +190,16 @@ class _AddEventState extends State<AddEvent> {
 
                     child: TextFormField(
 
+
                       keyboardType: TextInputType.text,
 
-                      decoration: InputDecoration(labelText: "Event Details"),
+
+                      decoration: InputDecoration(
+                        
+                        labelText: "Event Details",
+                        
+                      ),
+
 
                       validator: (value) =>
                       
@@ -207,9 +226,16 @@ class _AddEventState extends State<AddEvent> {
 
                     child: TextFormField(
 
+
                       keyboardType: TextInputType.text,
 
-                      decoration: InputDecoration(labelText: "Event Date"),
+
+                      decoration: InputDecoration(
+                        
+                        labelText: "Event Date",
+                        
+                      ),
+
 
                       validator: (value) =>
                       
@@ -236,9 +262,16 @@ class _AddEventState extends State<AddEvent> {
 
                     child: TextFormField(
 
+
                       keyboardType: TextInputType.text,
 
-                      decoration: InputDecoration(labelText: "Event Location"),
+
+                      decoration: InputDecoration(
+                        
+                        labelText: "Event Location",
+                        
+                      ),
+
 
                       validator: (value) =>
                       
@@ -257,6 +290,7 @@ class _AddEventState extends State<AddEvent> {
 
 
                 SizedBox(height: 10.0),
+
 
 
 

@@ -6,16 +6,19 @@ import 'event.dart';
 
 
 
-
+//---1st thing we'll create Statefull Widget----
 
 class StateContainer extends StatefulWidget {
+
 
   final Widget child;
 
   final Event event;
 
 
+
   StateContainer({@required this.child, this.event});
+
 
 
   static StateContainerState of(BuildContext context){
@@ -24,7 +27,9 @@ class StateContainer extends StatefulWidget {
 
   }
 
+
   StateContainerState createState() => StateContainerState();
+
 
 }
 
@@ -45,7 +50,17 @@ class StateContainerState extends State<StateContainer> {
     if(event == null){
 
 
-      event = Event(eventName: eventName, eventDetails: eventDetails, eventDate: eventDate, eventLocation: eventLocation);
+      event = Event(
+        
+        eventName: eventName, 
+        
+        eventDetails: eventDetails, 
+        
+        eventDate: eventDate, 
+        
+        eventLocation: eventLocation
+        
+      );
 
 
       setState(() {
@@ -94,14 +109,20 @@ class StateContainerState extends State<StateContainer> {
 }
 
 
-//-----------INHERITED WIDGET ---------
 
+
+
+//---2nd we'll create 'Inherited Container Class ----
+
+//-----------INHERITED CONTAINER WIDGET ---------
 class InheritedContainer extends InheritedWidget{
 
 
+  //---3rd we'll declare State Data
   final StateContainerState data;
 
 
+  //---4th we'll pass that data in our CONSTRUCTOR
   InheritedContainer({Key key, @required this.data, @required Widget child}) : super(key: key, child: child);
 
 

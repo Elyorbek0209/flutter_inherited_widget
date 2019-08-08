@@ -159,7 +159,7 @@ class _EventPageState extends State<EventPage> {
                             
                             style: TextStyle(
 
-                              fontSize: 30.0, 
+                              fontSize: 25.0, 
 
                               color: Color(0xffe81035)
 
@@ -185,7 +185,7 @@ class _EventPageState extends State<EventPage> {
                             
                             style: TextStyle(
 
-                              fontSize: 30.0, 
+                              fontSize: 20.0, 
 
                               color: Color(0xff00b0ff)
 
@@ -234,7 +234,7 @@ class _EventPageState extends State<EventPage> {
 
                                   style: TextStyle(
 
-                                    fontSize: 30.0,
+                                    fontSize: 20.0,
 
                                     color: Color(0xffe81035),
 
@@ -252,6 +252,7 @@ class _EventPageState extends State<EventPage> {
                           ),
 
 
+                          SizedBox(height: 10.0),
 
 
                           Container(
@@ -287,7 +288,7 @@ class _EventPageState extends State<EventPage> {
 
                                   style: TextStyle(
 
-                                    fontSize: 18.0,
+                                    fontSize: 20.0,
 
                                     color: Color(0xffe81035),
 
